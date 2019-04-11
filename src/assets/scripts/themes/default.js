@@ -3,7 +3,7 @@ var defaultTheme = {
     'text-align': 'left',
     'color': '#3f3f3f',
     'line-height': '1.5',
-    'font-size': '16px',
+    'font-size': '15px',
   },
   BASE_BLOCK: {
     'margin': '20px 10px'
@@ -23,14 +23,15 @@ var defaultTheme = {
       'margin': '40px 10px 20px 10px'
     },
     p: {
-      'margin': '10px 10px',
-      'line-height': '1.6'
+      'margin': '10px 20px',
+      'color':'#5C4033',
+      'line-height': '1.6',
     },
     blockquote: {
       'color': 'rgb(91, 91, 91)',
       'padding': '1px 0 1px 10px',
       'background': 'rgba(158, 158, 158, 0.1)',
-      'border-left': '3px solid rgb(158,158,158)',
+      'border-left': '3px solid rgb(158,158,158)'
     },
     code: {
       'font-size': '80%',
@@ -86,7 +87,7 @@ var defaultTheme = {
       'color': '#ff3502'
     },
     strong: {
-      'color': '#ff3502'
+      'color': '#333'
     },
     table: {
       'border-collapse': 'collapse',  
