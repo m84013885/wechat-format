@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>微信公众号格式化编辑器</title>
-  <link rel="shortcut icon" href="favicon.png"> 
+  <link rel="shortcut icon" href="favicon.png">
   <link rel="apple-touch-icon-precomposed" href="favicon.png">
   <link rel="stylesheet" href="assets/css/vue-eleui.css">
   <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
@@ -14,7 +15,7 @@
   <link rel="stylesheet" href="codemirror/theme/duotone-light.css">
   <link rel="stylesheet" href="codemirror/theme/monokai.css">
   <link rel="stylesheet" href="assets/css/app.css">
-  
+
   <script src="assets/scripts/axios.min.js"></script>
   <script src="assets/scripts/marked.min.js"></script>
   <script src="assets/scripts/vue.js"></script>
@@ -26,11 +27,12 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-4178606-10"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'UA-4178606-10');
   </script>
 </head>
+
 <body>
   <div id="app" class="container">
     <el-container>
@@ -39,12 +41,10 @@
         <el-form label-width="80px" size="mini" class="ctrl">
           <el-form-item label="Fonts">
             <el-select v-model="currentFont" size="mini" placeholder="选择字体" @change="fontChanged">
-              <el-option v-for="font in builtinFonts"  :style="{fontFamily: font.fonts}"
-                :key="font.value"
-                :label="font.label"
-                :value="font.fonts">
+              <el-option v-for="font in builtinFonts" :style="{fontFamily: font.fonts}" :key="font.value"
+                :label="font.label" :value="font.fonts">
                 <span style="float: left">{{ font.label }}</span>
-                <span style="float: right; color: #8492a6; font-size: 13px" >Abc</span>
+                <span style="float: right; color: #8492a6; font-size: 13px">Abc</span>
               </el-option>
             </el-select>
           </el-form-item>
@@ -53,17 +53,18 @@
       <el-main class="main-body">
         <el-row :gutter="10" class="main-section">
           <el-col :span="12">
-            <textarea
-              id="editor"
-              type="textarea"
-              placeholder="Your markdown here."
-              v-model="source"
-              >
+            <textarea id="editor" type="textarea" placeholder="Your markdown here." v-model="source">
             </textarea>
           </el-col>
           <el-col :span="12" class="preview-wrapper">
             <section>
-              <div class="hint">全选复制或<a href="#" @click="copy" class="copy-button">点此复制</a>，然后在公众号编辑器粘贴</div>
+              <div class="hint">
+                全选复制或<a href="#" @click="copy" class="copy-button">点此复制</a>，然后在公众号编辑器粘贴
+                <div class="hintClick">
+                  <a v-for="(todo, index) in todos" href="#" @click="addText(todo.text)" class="copy-button addText">{{todo.name}}</a>
+                </div>
+              </div>
+
               <div class="preview" contenteditable="true">
                 <div id="output" v-html="output">
                 </div>
@@ -75,10 +76,16 @@
     </el-container>
 
   </div>
-
+  <script>
+    var customizeText =  [
+      { name: 'footer',text:'*我相信你所说的你并不懂我在想什么是真的，就像你所说的我并不懂你在想什么也是真的。*' },
+      { name: 'header',text:'456'  }
+    ]
+  </script>
   <script src="assets/scripts/themes/default.js"></script>
   <script src="assets/scripts/renderers/wx-renderer.js"></script>
   <script src="assets/scripts/editor.js"></script>
 
 </body>
+
 </html>

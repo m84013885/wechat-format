@@ -61,6 +61,12 @@ section {
   opacity: 0.6;
   margin: 20px 0;
 }
+.hintClick{
+  text-align: center;
+}
+.addText{
+  margin-left: 10px;
+}
 .preview {
   margin: 0 -20px;
   width: 375px;

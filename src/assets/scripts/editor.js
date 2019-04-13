@@ -16,7 +16,8 @@ var app = new Vue({
       currentFont: {
         label: '', value: ''
       },
-      aboutDialogVisible: false
+      aboutDialogVisible: false,
+      todos: window.customizeText
     }
   },
   mounted () {
@@ -87,6 +88,9 @@ var app = new Vue({
           message: '未能复制到剪贴板，请全选后右键复制', type: 'warning'
         })
       }
+    },
+    addText:function(message){
+      this.editor.setValue(this.editor.getValue()+message)
     }
   }
 })
