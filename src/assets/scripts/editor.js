@@ -17,7 +17,10 @@ var app = new Vue({
         label: '', value: ''
       },
       aboutDialogVisible: false,
-      todos: window.customizeText
+      todos: window.customizeText,
+      styleApp:{
+        width:'375px'
+      }
     }
   },
   mounted() {
@@ -99,7 +102,19 @@ var app = new Vue({
       } else if (position === 'before') {
         this.editor.setValue(str + this.editor.getValue())
       }
-
+    },
+    changeApp(app){
+      switch (app){
+        case 1:
+        this.styleApp = {width:'320px'}
+        break
+        case 2:
+        this.styleApp = {width:'375px'}
+        break
+        case 3:
+        this.styleApp = {width:'414px'}
+        break
+      }
     }
   }
 })

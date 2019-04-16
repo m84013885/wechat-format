@@ -25,7 +25,7 @@ var defaultTheme = {
     p: {
       'margin': '10px 20px',
       'color':'#5C4033',
-      'line-height': '1.6',
+      'line-height': '1.5',
     },
     blockquote: {
       'color': 'rgb(91, 91, 91)',

@@ -64,9 +64,16 @@
                   <a v-for="(todo, index) in todos" href="#" @click="addText(todo.text,todo.position,todo.random)"
                     class="copy-button addText">{{todo.name}}</a>
                 </div>
+                <div class="hintClick">
+                  编辑器的宽度
+                  <a href="#" class="copy-button" @click="changeApp(1)">325</a>
+                  <a href="#" class="copy-button" @click="changeApp(2)">375</a>
+                  <a href="#" class="copy-button" @click="changeApp(3)">414</a>
+                  点击直接修改
+                </div>
               </div>
 
-              <div class="preview" contenteditable="true">
+              <div class="preview" contenteditable="true" v-bind:style="styleApp">
                 <div id="output" v-html="output">
                 </div>
               </div>
