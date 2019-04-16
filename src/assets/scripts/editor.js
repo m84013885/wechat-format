@@ -10,8 +10,8 @@ var app = new Vue({
       currentEditorTheme: 'base16-light',
       editor: null,
       builtinFonts: [
-        { label: '衬线', value: 'serif', fonts: "Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, 'PingFang SC', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif"},
-        { label: '无衬线', value: 'sans-serif', fonts: "Roboto, Oxygen, Ubuntu, Cantarell, PingFangSC-light, PingFangTC-light, 'Open Sans', 'Helvetica Neue', sans-serif"}
+        { label: '衬线', value: 'serif', fonts: "Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, 'PingFang SC', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif" },
+        { label: '无衬线', value: 'sans-serif', fonts: "Roboto, Oxygen, Ubuntu, Cantarell, PingFangSC-light, PingFangTC-light, 'Open Sans', 'Helvetica Neue', sans-serif" }
       ],
       currentFont: {
         label: '', value: ''
@@ -20,7 +20,7 @@ var app = new Vue({
       todos: window.customizeText
     }
   },
-  mounted () {
+  mounted() {
     var self = this
     this.editor = CodeMirror.fromTextArea(document.getElementById('editor'), {
       lineNumbers: false,
@@ -29,7 +29,7 @@ var app = new Vue({
       theme: this.currentEditorTheme,
       mode: 'text/x-markdown',
     });
-    this.editor.on("change", function(cm, change) {
+    this.editor.on("change", function (cm, change) {
       self.refresh()
     })
     this.currentFont = this.builtinFonts[0]
@@ -67,11 +67,11 @@ var app = new Vue({
     copy: function () {
       var clipboardDiv = document.getElementById('output')
       clipboardDiv.focus();
-      window.getSelection().removeAllRanges();  
-      var range = document.createRange(); 
+      window.getSelection().removeAllRanges();
+      var range = document.createRange();
       range.setStartBefore(clipboardDiv.firstChild);
       range.setEndAfter(clipboardDiv.lastChild);
-      window.getSelection().addRange(range);  
+      window.getSelection().addRange(range);
 
       try {
         if (document.execCommand('copy')) {
@@ -89,8 +89,17 @@ var app = new Vue({
         })
       }
     },
-    addText:function(message){
-      this.editor.setValue(this.editor.getValue()+message)
+    addText: function (str, position, random) {
+      if (position === 'after' && random) {
+        this.editor.setValue(this.editor.getValue() + str.replace('###', Math.floor((Math.random() * random))))
+      } else if (position === 'before' && random) {
+        this.editor.setValue(str.replace('###', Math.floor((Math.random() * random))) + this.editor.getValue())
+      } else if (position === 'after') {
+        this.editor.setValue(this.editor.getValue() + str)
+      } else if (position === 'before') {
+        this.editor.setValue(str + this.editor.getValue())
+      }
+
     }
   }
 })

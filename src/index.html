@@ -61,7 +61,8 @@
               <div class="hint">
                 全选复制或<a href="#" @click="copy" class="copy-button">点此复制</a>，然后在公众号编辑器粘贴
                 <div class="hintClick">
-                  <a v-for="(todo, index) in todos" href="#" @click="addText(todo.text)" class="copy-button addText">{{todo.name}}</a>
+                  <a v-for="(todo, index) in todos" href="#" @click="addText(todo.text,todo.position,todo.random)"
+                    class="copy-button addText">{{todo.name}}</a>
                 </div>
               </div>
 
@@ -77,9 +78,10 @@
 
   </div>
   <script>
-    var customizeText =  [
-      { name: 'footer',text:'*我相信你所说的你并不懂我在想什么是真的，就像你所说的我并不懂你在想什么也是真的。*' },
-      { name: 'header',text:'456'  }
+    var customizeText = [
+      { position: 'after', name: 'line', text: `![](https://m84013885.github.io/QM_images/line/###.jpg)`, random: 137 },
+      { position: 'after', name: 'paper', text: `![](https://m84013885.github.io/QM_images/paper/###.jpg)`, random: 116 },
+      { position: 'after', name: 'my', text: `![](https://m84013885.github.io/QM_images/my/###.jpg)`, random: 3 },
     ]
   </script>
   <script src="assets/scripts/themes/default.js"></script>
