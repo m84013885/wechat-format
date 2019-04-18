@@ -70,7 +70,7 @@ section {
 }
 .preview {
   margin: 0 auto;
-  padding: 20px;
+  padding: 20px 0;
   width: 375px;
   outline: none;
   box-shadow: 0 0 60px rgba(0,0,0,0.1);

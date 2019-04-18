@@ -15,15 +15,16 @@ var defaultTheme = {
       'text-align': 'center',
       'font-weight': 'normal',
       'text-align': 'center',
-      'margin': '80px 10px 40px 10px'
+      'margin': '80px 20px 40px 20px'
     },
     h3: {
       'font-weight': 'bold',
       'font-size': '120%',
-      'margin': '40px 10px 20px 10px'
+      'margin': '40px 20px 20px 20px'
     },
     p: {
-      'margin': '10px 20px',
+      'width':'300px',
+      'margin': '0 auto',
       'color':'#5C4033',
       'line-height': '1.5',
     },
