@@ -1,2 +1,7 @@
-node_modules/
-**/.DS_Store
+.DS_STORE
+*.log
+node_modules
+coverage
+.idea/
+.yarn-cache
+
